@@ -41,14 +41,12 @@ const outputHTML = ({ provider = 'unknown', token, error, errorCode }) => {
       </script></body></html>
     `,
     {
-      headers: {
+     headers: {
         'Content-Type': 'text/html;charset=UTF-8',
+        'Cross-Origin-Opener-Policy': 'unsafe-none',
         // Delete CSRF token
         'Set-Cookie': `csrf-token=deleted; HttpOnly; Max-Age=0; Path=/; SameSite=Lax; Secure`,
       },
-    },
-  );
-};
 
 /**
  * Handle the `auth` method, which is the first request in the authorization flow.
